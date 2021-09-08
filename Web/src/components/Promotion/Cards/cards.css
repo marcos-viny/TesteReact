@@ -1,0 +1,69 @@
+.promotion-container {
+    border: 1px solid #c3c3c3;
+    border-radius: 8px;
+    box-shadow: 0px 12px 7px 5px rgba(0, 0, 0, 0.50);
+    max-width: 75%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 35px);
+}
+
+.promotion-card {
+    grid-column: 1/1;
+    grid-row: 1/-1;
+    margin: auto;
+}
+
+.promotion__img {
+    max-width: 150px;
+}
+
+.promotion__title {
+    grid-column: 2/-1;
+    grid-row: 2;
+    font-size: 16px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+}
+
+.promotion__price {
+    grid-column: 2/-1;
+    grid-row: 3/3;
+    font-size: 26px;
+    font-weight: 700;
+    color: #3498db;
+    display: flex;
+    align-items: flex-end;
+}
+
+.promotion__rodape {
+    grid-column: 2/-1;
+    grid-row: 5/5;
+    display: flex;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.promotion__comments-1 {
+    grid-row: 5/5;
+    color: #95a5a6;
+    font-weight: 700;
+}
+
+.promotion__comments {
+    grid-row: 5/5;
+    margin-left: auto;
+    margin-right: 10px;
+    color: #3498db;
+}
+
+.promotion__link {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #3498db;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #3498db;
+}
