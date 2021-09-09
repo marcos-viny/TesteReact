@@ -7,6 +7,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 35px);
+    margin-bottom: 40px;
+}
+
+.promotion-container:hover {
+    /* transition-timing-function: ease-in; */
+    transition-duration: 1s;
+    /* transition-delay: 0.20s; */
+    transform: translateY(5px);
 }
 
 .promotion-card {
@@ -50,6 +58,7 @@
     grid-row: 5/5;
     color: #95a5a6;
     font-weight: 700;
+    max-width: 450px;
 }
 
 .promotion__comments {
