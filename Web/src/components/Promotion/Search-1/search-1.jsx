@@ -1,8 +1,9 @@
 import React,{useEffect, useState} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import PromotionCards from '../Cards/cards.jsx';
+import './search-1.css';
 
 
 const PromotionSearch_1 = () => {
@@ -18,23 +19,26 @@ const PromotionSearch_1 = () => {
         });
     
       },[]);
-    return ( 
-        
-        <>
 
-        <div className="promotion-search">
-          <head className="promotion__header">
-            <h1>Prom show</h1>
+    return ( 
+
+      <>
+      <div>
+      <head className="promotion__header">
+            <h1>Promo show</h1>
             <Link to="/create">Nova Promoção</Link>
+            <h1>opp</h1>
           </head>
+      </div>
+        <div className="promotion-search">
 
          {promotions.map((promotion) =>(
            <PromotionCards promotion={promotion} />
-         ))}
+           ))}
        </div>
-
-        </>
+ 
+           </>
      );
-}
+};
  
 export default PromotionSearch_1;

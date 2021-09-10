@@ -1,4 +1,8 @@
 .ui-container {
     max-width: 75%;
-    margin: 300px auto;
+    margin: 0px auto;
+}
+
+.promotion__header {
+    margin-top: 300px;
 }
