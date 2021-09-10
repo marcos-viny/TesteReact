@@ -2,8 +2,6 @@
     border: 1px solid #c3c3c3;
     border-radius: 8px;
     box-shadow: 0px 12px 7px 5px rgba(0, 0, 0, 0.50);
-    max-width: 75%;
-    margin: 30px auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 35px);
