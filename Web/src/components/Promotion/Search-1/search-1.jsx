@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import PromotionCards from '../Cards/cards.jsx';
-import './search-1.css';
 
 
 const PromotionSearch_1 = () => {
@@ -23,14 +22,18 @@ const PromotionSearch_1 = () => {
     return ( 
 
       <>
-      <div>
-      <head className="promotion__header">
-            <h1>Promo show</h1>
-            <Link to="/create">Nova Promoção</Link>
-            <h1>opp</h1>
-          </head>
-      </div>
-        <div className="promotion-search">
+      
+      
+        <div className="promotion-search__container">
+          <header className="promotion-search__header">
+            <h1>Promo Show</h1>
+            <Link to="/create">Novo Promoção</Link>
+          </header>
+          
+          <section className="promotion-search__input">
+            <input type="search"/>
+          </section>
+
 
          {promotions.map((promotion) =>(
            <PromotionCards promotion={promotion} />
