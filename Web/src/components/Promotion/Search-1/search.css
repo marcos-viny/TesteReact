@@ -1,0 +1,25 @@
+.promotion-search__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.promotion-search__header h1 {
+    text-transform: uppercase;
+    color: #888;
+}
+
+.promotion-search__input {
+    display: flex;
+}
+
+.promotion-search__input input {
+    height: 42px;
+    border: 2px solid #888;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    font-size: 16px;
+}
