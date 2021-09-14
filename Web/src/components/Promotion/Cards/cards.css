@@ -9,11 +9,8 @@
 }
 
 .promotion-container:hover {
-    /* transition-timing-function: ease-in; */
     transition-duration: 1s;
-    /* transition-delay: 0.20s; */
     transform: translateY(5px);
-    /* marcos teste */
 }
 
 .promotion-card {
