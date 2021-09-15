@@ -1,13 +1,14 @@
 import React from 'react';
 
+import PromotionFormu from '../../../components/Promotion/Formu/formu.jsx';
+import UiContainer from '../../../components/UI/Container/container.jsx';
+
 const PromotionPagesForm = () => {
     return ( 
         <>
-        <div>
-            <h1>
-                Marcos Vinicius.
-            </h1>
-        </div>
+        <UiContainer>
+           <PromotionFormu />
+        </UiContainer>
         </>
      );
 }
