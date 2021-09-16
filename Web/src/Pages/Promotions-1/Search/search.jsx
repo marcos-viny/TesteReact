@@ -7,13 +7,13 @@ import UiContainer from '../../../components/UI/Container/container.jsx';
 const PagesPromotionSearch = () => {
 
   return(
+    <>
+
     <UiContainer>
-
-    <div>
         <PromotionSearch_1 />
-    </div>
-
     </UiContainer>
+
+    </>
   )
 }
  

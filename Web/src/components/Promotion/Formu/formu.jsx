@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 import './formu.css';
 
@@ -12,12 +14,23 @@ const inicialValue = {
 const PromotionFormu = () => {
     const [values, setValues] = useState(inicialValue );
 
+    const history = useHistory();
+
     function onChange(ev){
         const { name,value } = ev.target;
         console.log({name, value})
 
         setValues({ ...values,[name]: value });
     }
+
+    function onSubmit(ev){
+        ev.preventDefault();
+
+        axios.post('http://localhost:5000/promotions', values)
+        .then(()=>{
+            history.push('/');
+        });
+    };
 
     return ( 
         <>
@@ -26,7 +39,7 @@ const PromotionFormu = () => {
             <h1>Promo Show</h1>
             <h2>Nova Promoção</h2>
 
-            <form action="">
+            <form action="" onSubmit={onSubmit}>
                 <div className="promotion-form__container">
                     <label htmlFor="title">Titulo</label>
                     <input id="title" name="title" type="search" onChange={onChange} />
