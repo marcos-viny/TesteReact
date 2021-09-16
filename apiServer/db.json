@@ -33,6 +33,13 @@
             "imageUrl": "https://m.media-amazon.com/images/I/51H7-i-2IoL._AC_SL1000_.jpg",
             "price": "4",
             "id": 5
+        },
+        {
+            "title": "Breaking Bad A Serie Completa - Blu-Ray",
+            "url": "https://amzn.to/3Er7pka",
+            "imageUrl": "https://m.media-amazon.com/images/I/510owQlWW8L._AC_SL1000_.jpg",
+            "price": "30",
+            "id": 6
         }
 
     ],

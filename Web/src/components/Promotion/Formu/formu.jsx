@@ -27,7 +27,7 @@ const PromotionFormu = () => {
         ev.preventDefault();
 
         axios.post('http://localhost:5000/promotions', values)
-        .then((response)=>{
+        .then(()=>{
             history.push('/');
         });
     };
