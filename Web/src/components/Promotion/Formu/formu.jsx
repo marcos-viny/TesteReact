@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
@@ -11,10 +11,22 @@ const inicialValue = {
     price:0,
 }
 
-const PromotionFormu = () => {
+const PromotionFormu = ({ id }) => {
     const [values, setValues] = useState(inicialValue );
-
+    
     const history = useHistory();
+
+    console.log(id);
+
+    useEffect(() => {
+        if(id){
+            axios.get(`http://localhost:5000/promotions/${id}`)
+            .then((response) =>{
+                console.log(response)
+                setValues(response.data)
+            });
+        }
+    },[]);
 
     function onChange(ev){
         const { name,value } = ev.target;

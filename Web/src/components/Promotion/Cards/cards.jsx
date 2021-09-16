@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './cards.css';
 
@@ -25,6 +26,8 @@ const PromotionCards = ({ promotion }) => {
                 </div>
 
                 <a href={promotion.url} target="_blank" rel="noopener noreferrer" className="promotion__link">IR PARA O SITE</a>
+
+                <Link to={`/edit/${promotion.id}`}>Editar</Link>
 
             </footer>
         </div>
