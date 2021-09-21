@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
+import useApi from '../../Utils/userApi.jsx';
+
 import './formu.css';
 
 const inicialValue = {
@@ -12,19 +14,21 @@ const inicialValue = {
 }
 
 const PromotionFormu = ({ id }) => {
-    const [values, setValues] = useState( inicialValue );
-    
+    const [values, setValues] = useState(id ? null : inicialValue );
     const history = useHistory();
+    const [load, loadInfo] = useApi({
+        url:`http://localhost:5000/promotions/${id}`,
+        method:'get',
+        onCompleted: (response) =>{
+            setValues(response.data);
+        }
+    });
 
     useEffect(() => {
         if(id){
-            axios.get(`http://localhost:5000/promotions/${id}`)
-            .then((response) =>{
-               
-                setValues(response.data)
-            });
+           load();
         }
-    },[]);
+    },[ id ]);
 
     function onChange(ev){
         const { name,value } = ev.target;
@@ -46,12 +50,12 @@ const PromotionFormu = ({ id }) => {
         });
     };
 
-    //caso querira colocar um loading.
-    // if(!values){
-    //     return(
-    //         <div>Carregando...</div>
-    //     )
-    // };
+    
+     if(!values){
+        return(
+            <div>Carregando...</div>
+         )
+     };
 
     return ( 
         <>
@@ -60,6 +64,9 @@ const PromotionFormu = ({ id }) => {
             <h1>Promo Show</h1>
             <h2>Nova Promoção</h2>
 
+            {!values
+            ?(<div>Carregando...</div>)
+            :(  
             <form action="" onSubmit={onSubmit}>
                 <div className="promotion-form__container">
                     <label htmlFor="title">Titulo</label>
@@ -85,6 +92,8 @@ const PromotionFormu = ({ id }) => {
                     <button type="submit">Salvar</button>
                 </div>
             </form>
+            )}
+
         </div>
 
         </>
