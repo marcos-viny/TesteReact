@@ -16,11 +16,21 @@ const inicialValue = {
 const PromotionFormu = ({ id }) => {
     const [values, setValues] = useState(id ? null : inicialValue );
     const history = useHistory();
-    const [load, loadInfo] = useApi({
-        url:`http://localhost:5000/promotions/${id}`,
+    const [load] = useApi({
+        url:`/promotions/${id}`,
         method:'get',
         onCompleted: (response) =>{
             setValues(response.data);
+        }
+    });
+
+    const [save, saveInfo] = useApi({
+        url:id ? `/promotions/${id}` : '/promotions',
+        method: id ? 'put' : 'post',
+        onCompleted: (response) =>{
+            if(!response.error){
+                history.push('/');
+            }
         }
     });
 
@@ -38,24 +48,11 @@ const PromotionFormu = ({ id }) => {
 
     function onSubmit(ev){
         ev.preventDefault();
-
-        const method = id ? 'put' : 'post';
-         const url = id
-         ? `http://localhost:5000/promotions/${id}`
-         : 'http://localhost:5000/promotions'
-
-        axios[method](url, values)
-        .then(()=>{
-            history.push('/');
+        save({
+            data:values,
         });
     };
 
-    
-     if(!values){
-        return(
-            <div>Carregando...</div>
-         )
-     };
 
     return ( 
         <>
@@ -68,6 +65,7 @@ const PromotionFormu = ({ id }) => {
             ?(<div>Carregando...</div>)
             :(  
             <form action="" onSubmit={onSubmit}>
+                {saveInfo.loading && <span>Salvando dados...</span>}
                 <div className="promotion-form__container">
                     <label htmlFor="title">Titulo</label>
                     <input id="title" name="title" type="search" onChange={onChange} value={values.title} />

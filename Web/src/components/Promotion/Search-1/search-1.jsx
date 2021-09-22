@@ -10,7 +10,7 @@ const PromotionSearch_1 = () => {
 
     const [search, setSearch] = useState('');
     const [load, loadInfo] = useApi({
-      url:'http://localhost:5000/promotions',
+      url:'/promotions',
       method:'get',
       params:{
         _embed:'comments',
